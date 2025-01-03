@@ -9,22 +9,23 @@ This repository provides a LaTeX template designed to streamline the creation of
 - **Customization**: Allows easy modification to suit specific project requirements.
 - **Compatibility**: Designed to work seamlessly with standard LaTeX editors and compilers.
 
-## Getting Started
 
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/SONICPO/UI-generation-latex-template.git
-   ```
 
-2. **Navigate to the Template Directory:**
-   ```bash
-   cd UI-generation-latex-template
-   ```
+1. **Compiling with PDFLaTeX**
 
-3. **Compile the Template:**
-   ```bash
-   pdflatex template.tex
-   ```
+Install LaTeX Distribution: Ensure you have a LaTeX distribution installed (e.g., TeX Live, MiKTeX).
+Open the Template: Open the main.tex file in your LaTeX editor (e.g., TeXstudio).
+Compile the Document: Select appropriate compiler and compile the document to generate the PDF report.
+Or you can directly compile through command line.
+
+```bash
+latexmk -pdf -synctex=1 -interaction=nonstopmode -file-line-error -outdir=build main.tex
+
+makeglossaries -d build main
+
+latexmk -pdf -synctex=1 -interaction=nonstopmode -file-line-error -outdir=build main.tex
+```
+
 
 ## Customization
 
