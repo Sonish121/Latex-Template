@@ -49,7 +49,6 @@
 \usepackage{glossaries}
 
 \onehalfspacing
-
 \numberwithin{equation}{section}
 \renewcommand{\theequation}{\thesection-\arabic{equation}}
 
@@ -163,6 +162,7 @@
 \renewcommand{\refname}{References}  % Change section name to "References" 
 
 \usepackage{verbatim}
+\usepackage{setspace}
 
 
 

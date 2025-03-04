@@ -1,0 +1,171 @@
+%\usepackage{lipsum} % Comment this if lorem ipsum is not needed
+% The outlines in hyperrefs won't affect the printed documents so you can leave it as is
+% \hypersetup{hidelinks}  % Uncomment to hide red-outlines in hyperreferences
+
+% add the title preamble
+\titlepreamble{Major Project Report On}
+
+% add the project title
+\projecttitle{User Interface Code Generation from Hand-drawn Sketch} 
+
+% add author names
+\addauthor{Manoj Paudel}{THA077BCT025}
+\addauthor{Prince Poudel}{THA077BCT036}
+\addauthor{Ronish Shrestha}{THA077BCT040}
+\addauthor{Sonish Poudel}{THA077BCT042}
+
+% add supervisor name
+\supervisor{Er. Devendra Kathayat}
+
+% coverpage
+\coverpage
+
+% start of phantom section
+\phantomsec
+
+% for second coverpage
+\coverpageB
+\pagebreak
+
+% Keep this section as it is
+\section*{DECLARATION}
+    \addcontentsline{toc}{section}{DECLARATION}
+    We hereby declare that the report of the project entitled \textbf{“\titlename”} which is being submitted to the \textbf{Department of Electronics and Computer Engineering, IOE, Thapathali Campus}, 
+    in the partial fulfillment of the requirements for the award of the Degree of Bachelor of Engineering in \textbf{Computer}, is a bonafide report of the work carried out by us. The materials contained in this report have not been submitted to any University or Institution for the award of any degree and we are the only author of this complete work and no sources other than the listed here have been used in this work.
+    \\ \\ \\ \\
+    \foreach \name [count=\i] in \authornames {
+        \foreach \roll [count=\j] in \authorrollnumbers {
+            \ifnum\i=\j
+                \name\ (Class Roll No:\roll) \hrulefill \\ \\ 
+            \fi 
+        }
+    }
+    \\
+    \textbf{Date:} \today
+    \pagebreak
+
+% Only change the name, Keep this section as it is
+\section*{CERTIFICATE OF APPROVAL}
+    \addcontentsline{toc}{section}{CERTIFICATE OF APPROVAL}
+    The undersigned certify that they have read and recommended to the \textbf{Department of Electronics and Computer Engineering, IOE, Thapathali Campus}, a major project work titled \textbf{``\titlename"} submitted by \textbf{\authornames} in partial fulfillment for the award of Bachelor's Degree in Computer Enginnering. The Project was carried out under special supervision and within the time frame prescribed by the syllabus.
+    
+    We found the students to be hardworking, skilled and ready to undertake any related work to their field of study and hence we recommend the award of partial fulfillment of Bachelor's Degree in Computer Enginnering.\\
+    
+    \rule{0.5\linewidth}{0.4pt}\\
+    Project Supervisor\\
+    \supervisorname\\
+    Department of Electronics and Computer Engineering, Thapathali Campus\\
+
+    \rule{0.5\linewidth}{0.4pt} \\
+    External Examiner \\
+    Dr. Prakash Poudyal \\
+    Department of Computer Science and Engineering, Kathmandu University\\
+
+    \rule{0.5\linewidth}{0.4pt} \\
+    Project Co-ordinator\\
+    Er. Saroj Shakya \\
+    Department of Electronics and Computer Engineering, Thapathali Campus\\
+
+    \rule{0.5\linewidth}{0.4pt} \\
+    Head of the Department \\ 
+    Er. Umesh Kanta Ghimire \\
+    Department of Electronics and Computer Engineering, Thapathali Campus\\
+
+    \today
+
+    \pagebreak
+
+% Keep this section as it is
+\section*{COPYRIGHT}
+    \addcontentsline{toc}{section}{COPYRIGHT}
+    The author has agreed that the Library, along with the Department of Electronics and Computer Engineering, Thapathali Campus, may make this report available for public inspection. Furthermore, the author has consented to the possibility of extensive copying of this project work for scholarly purposes, which may be granted by the supervising professor/lecturer or, in their absence, by the head of the department. It is understood that recognition will be given to the author and to the Department of Electronics and Computer Engineering, IOE, Thapathali Campus, for any use of the material from this report. Unauthorized copying for publication or other forms of financial gain without the express approval of both the Department of Electronics and Computer Engineering, IOE, Thapathali Campus, and the author is strictly prohibited.
+
+    Requests for permission to copy or make any use of the material from this project, in whole or in part, should be addressed to the Department of Electronics and Computer Engineering, IOE, Thapathali Campus.
+
+    \pagebreak
+
+\section*{ACKNOWLEDGMENT}
+    \addcontentsline{toc}{section}{ACKNOWLEDGMENT}
+
+    % Write Acknowledgements
+We would like to express our sincere gratitude towards the Institute of Engineering,
+Tribhuvan University for the inclusion of major project in the course of Bachelors in
+Computer Engineering. We are also thankful towards our Department of Electronics
+and Computer Engineering for the proper orientation and guidance during the project
+\textbf{“User Interface Code Generation from Hand-drawn Sketch”}.
+
+We would like to acknowledge the authors of various research papers and developers
+of various programming libraries and frameworks that we have reference for
+developing our project.
+We would like to express our gratitude towards our Project Supervisor \textbf{\supervisorname} for continuous suggestions throughout.
+Finally, we would like to thank all the people who are directly or indirectly related
+during our study and preparation of this project.
+
+    
+
+    % Do not change this part
+    Sincerely, 
+    \par
+    \par
+    \def\namerolltable{}
+    \foreach \name [count=\i] in \authornames {
+        \foreach \roll [count=\j] in \authorrollnumbers {
+            \ifnum\i=\j
+                \xdef\namerolltable{\namerolltable \name & (Class Roll No:\roll) \\ \\} 
+            \fi
+        }
+    }
+    \begin{tabular}{@{}l@{\hspace{0.03\linewidth}}l@{}}
+        \namerolltable
+    \end{tabular} 
+
+
+
+    \pagebreak
+
+    
+\section*{ABSTRACT}
+    \addcontentsline{toc}{section}{ABSTRACT}
+
+    % Write Abstract
+    This report presents "User Interface Code Generation from Hand-drawn Sketch," where we developed
+    an artificial intelligence model that generates HTML/CSS code from layout sketches. A transformer
+    model was implemented where the input is a sketch and the output is DSL (Domain Specific Language)
+    code. A custom DSL was developed consisting of elements such as header, image, and text that describe
+    sketches with hierarchical information. As transformer model requires large datasets, a dataset
+    generator was created that produces sketches based on given DSL code, with DSL code created using
+    various element combinations. The model follows an encoder-decoder architecture where the encoder
+    processes the input image and the decoder transforms it into DSL code. Three models with different
+    encoders were trained and evaluated: Compact Convolutional Transformer Encoder, Vision Transformer,
+    and Convolutional Encoder. Among these, the Compact Convolutional Transformer Encoder performed
+    best with a BLEU score of 0.901 in optimal conditions. A Graphical User Interface was also developed
+    allowing users to customize text, images, and fonts according to their preferences, with functionality to
+    download the resulting HTML/CSS files. Future work could enhance this project through JavaScript
+    integration to add more features.
+    
+    % Keywords in italics
+    \textit{Keywords: Artificial Intelligence, \gls{dsl}, Image
+Processing, Image synthesis, Self-Attention, Transformer Decoder, \gls{vit}}
+
+    \pagebreak
+    
+
+% Table of Contents
+\tableofcontents
+\pagebreak
+
+% List of Figures
+\listoffigures
+\addcontentsline{toc}{section}{List of Figures}
+\pagebreak
+
+% List of Tables
+\listoftables
+\addcontentsline{toc}{section}{List of Tables}
+\pagebreak
+  
+% List of Abbreviations
+\printglossary[type=\acronymtype,style=acronyms-only,title=List of Abbreviations{\vspace{0.5\baselineskip}}]
+\addcontentsline{toc}{section}{List of Abbreviations}
+\pagebreak
+% end of phantom section
