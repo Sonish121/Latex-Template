@@ -25,6 +25,56 @@ makeglossaries -d build main
 
 latexmk -pdf -synctex=1 -interaction=nonstopmode -file-line-error -outdir=build main.tex
 ```
+2.**Using Vs Code** 
+
+i.Install LaTeX Workshop Extension: In VSCode, go to Extensions and install the "LaTeX Workshop" extension.
+
+ii.Open VSCode settings.json and add the following configuration.
+
+```Ctrl+Shift+P and Search "Preferences: Open User Settings (JSON)"```
+
+```bash
+{
+"latex-workshop.latex.outDir": "%DIR%/build",
+"latex-workshop.latex.recipes": [
+    {
+        "name": "latexmk (custom)",
+        "tools": [
+            "latexmk",
+            "makeglossaries",
+            "latexmk"
+        ]
+    },
+],
+"latex-workshop.latex.tools": [
+    {
+        "name": "latexmk",
+        "command": "latexmk",
+        "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "-pdf",
+            "-outdir=%OUTDIR%",
+            "%DOC%"
+        ],
+        "env": {}
+    },
+    {
+        "name": "makeglossaries",
+        "command": "makeglossaries",
+        "args": [
+            "-d",
+            "%OUTDIR%",
+            "%DOCFILE%"
+        ]
+    },
+],
+}
+```
+iii. Open the Template: Open the main.tex file in VSCode with template directory as workspace.
+
+iv. Compile the Document: Use the "LaTeX Workshop" extension to compile the document by clicking on the "TeX" icon in the toolbar and selecting "Build LaTeX project".
 
 
 ## Customization
